@@ -38,23 +38,23 @@ class ThemeWars:
         # Disable anti-alaising, we need sharp edges
         draw.fontmode = '1'
 
-        # Draw dark component
-        width_offset = max_dark_width = 4
-        height_offset = total_dark_height = 4
-        for line in textwrap.wrap(dark_theme_message, width=self.line_max_char_width):
-            draw.text((width_offset, height_offset), line, font=self.font, fill="#36393f")
-            height_offset += self.font.getsize(line)[1] * 1.2
-            total_dark_height += self.font.getsize(line)[1] * 1.2
-            max_dark_width = max(max_dark_width, self.font.getsize(line)[0])
-
-        # Draw Light component
+        # Draw light component (what light users see, dark text)
         width_offset = max_light_width = 4
-        height_offset = total_light_height = 6
+        height_offset = total_light_height = 4
         for line in textwrap.wrap(light_theme_message, width=self.line_max_char_width):
-            draw.text((width_offset, height_offset), line, font=self.font, fill="#ffffff")
+            draw.text((width_offset, height_offset), line, font=self.font, fill="#36393f")
             height_offset += self.font.getsize(line)[1] * 1.2
             total_light_height += self.font.getsize(line)[1] * 1.2
             max_light_width = max(max_light_width, self.font.getsize(line)[0])
+
+        # Draw dark component (what dark users see, light text)
+        width_offset = max_dark_width = 4
+        height_offset = total_dark_height = 6
+        for line in textwrap.wrap(dark_theme_message, width=self.line_max_char_width):
+            draw.text((width_offset, height_offset), line, font=self.font, fill="#ffffff")
+            height_offset += self.font.getsize(line)[1] * 1.2
+            total_dark_height += self.font.getsize(line)[1] * 1.2
+            max_dark_width = max(max_dark_width, self.font.getsize(line)[0])
 
         # Crop image to maximum width, height boundaries
         # Maximum image dimensions has to be fairly small, otherwise Discord seems to compress image/mess with pixels
