@@ -16,7 +16,7 @@ class ThemeWars(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.font = ImageFont.truetype("../assets/interlaced-font.ttf", 42)
-        self.image_width_max = 600
+        self.image_width_max = 400
         self.image_height_max = 250
         self.line_max_char_width = 16
 
