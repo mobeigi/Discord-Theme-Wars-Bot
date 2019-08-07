@@ -10,7 +10,7 @@ import tempfile
 
 """ Cog that generates secret light/dark messages """
 
-class ThemeWars:
+class ThemeWars(commands.Cog):
     """ThemeWars"""
 
     def __init__(self, bot):
