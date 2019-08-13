@@ -17,8 +17,12 @@ Each message matches the background colour of the Discord light and dark theme r
 Based on the idea discussed here:
 https://www.reddit.com/r/discordapp/comments/8t04ag/this_image_shows_different_text_depending_on/
 
-# Add to your server
+## Add to your server
 https://discordbots.org/bot/608283435047321613
+
+## Commands
+**![themewars|tw] <light_theme_message> <dark_theme_message>**  
+Generates a special message that shows differently based on users light/dark theme preference
 
 ## Requirements
 * python3.6+ (and all required python3 modules)
