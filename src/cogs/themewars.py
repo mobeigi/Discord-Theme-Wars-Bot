@@ -20,7 +20,8 @@ class ThemeWars(commands.Cog):
         self.image_height_max = 250
         self.line_max_char_width = 16
 
-    @commands.command(name='themewars', aliases=['tw'], hidden=True)
+    @commands.command(name='themewars', aliases=['tw'], brief='Generate Light/Dark Message', 
+        description='Generates a special message that shows differently based on users light/dark theme preference')
     async def themewars(self, ctx, light_theme_message : str,  dark_theme_message : str):
         # Delete original message
         await ctx.message.delete()
