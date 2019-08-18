@@ -18,7 +18,7 @@ Based on the idea discussed here:
 https://www.reddit.com/r/discordapp/comments/8t04ag/this_image_shows_different_text_depending_on/
 
 ## Add to your server
-https://discordbots.org/bot/608283435047321613
+https://discordapp.com/oauth2/authorize?client_id=608283435047321613&scope=bot&permissions=8192
 
 ## Commands
 **![themewars|tw] <light_theme_message> <dark_theme_message>**  
