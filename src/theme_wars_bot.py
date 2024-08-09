@@ -1,5 +1,6 @@
 import os
 import sys
+import traceback
 import discord
 from discord.ext import commands
 import configparser
@@ -13,7 +14,7 @@ config.read('../config/config.ini')
 
 # Settings
 INVITELINK = 'https://discordapp.com/oauth2/authorize?&client_id=' + str(config['DEFAULT']['CLIENTID']) + '&scope=bot&permissions=0'
-description = """Theme Wars Bot is a Discord bot created by Byte#0017."""
+description = """Theme Wars Bot is a Discord bot created by mobeigi."""
 
 def get_prefix(bot, msg):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
@@ -33,7 +34,10 @@ initial_extensions = (
     'cogs.themewars',
 )
 
-bot = commands.Bot(command_prefix=get_prefix, description=description)
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix=get_prefix, description=description, intents=intents)
 
 @bot.event
 async def on_ready():
@@ -45,10 +49,10 @@ async def on_ready():
     if __name__ == '__main__':
         for extension in initial_extensions:
             try:
-                bot.load_extension(extension)
+                await bot.load_extension(extension)
             except Exception as e:
                 print(f'Failed to load extension {extension}. ', file=sys.stderr)
-                traceback.print_exc() # Uncomment for bug reports.
+                traceback.print_exc()
     print(f'Successfully logged in and connected!')
     
-bot.run(config['DEFAULT']['TOKEN'], bot=True, reconnect=True)
+bot.run(token=config['DEFAULT']['TOKEN'], reconnect=True)

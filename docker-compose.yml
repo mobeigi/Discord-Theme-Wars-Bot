@@ -1,0 +1,7 @@
+services:
+  discord-theme-wars-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/config.ini:/app/config/config.ini:ro

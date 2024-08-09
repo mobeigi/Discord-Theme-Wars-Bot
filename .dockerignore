@@ -1,0 +1,10 @@
+# Config file
+config/config.ini
+
+# Git
+.git/
+
+# virtualenv
+.venv
+venv/
+ENV/
